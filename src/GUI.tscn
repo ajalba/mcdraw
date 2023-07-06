@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfxeanddl35g6"]
+
+[ext_resource type="Script" path="res://GUI.gd" id="1_x3fwd"]
+[ext_resource type="Script" path="res://RichTextLabel.gd" id="3_w4wix"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x3fwd")
+
+[node name="BaseImage" type="TextureRect" parent="."]
+offset_left = 161.0
+offset_top = 44.0
+offset_right = 1046.0
+offset_bottom = 714.0
+expand_mode = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(400, 300)
+size = Vector2i(800, 400)
+ok_button_text = "Abrir"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png, *.jpeg, *.jpg")
+show_hidden_files = true
+
+[node name="FileDialogBaseImage" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(400, 300)
+size = Vector2i(800, 400)
+ok_button_text = "Abrir"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png, *.jpeg, *.jpg")
+show_hidden_files = true
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+offset_left = 1374.0
+offset_top = 363.0
+offset_right = 1592.0
+offset_bottom = 931.0
+
+[node name="ButtonBase" type="Button" parent="."]
+offset_left = 153.0
+offset_top = 738.0
+offset_right = 384.0
+offset_bottom = 801.0
+text = "Select Base Image
+"
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+offset_left = 1232.0
+offset_top = 143.0
+offset_right = 1493.0
+offset_bottom = 176.0
+min_value = 1.0
+max_value = 10.0
+step = 1.0
+value = 2.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1047.0
+offset_top = 138.0
+offset_right = 1206.0
+offset_bottom = 178.0
+script = ExtResource("3_w4wix")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1235.0
+offset_top = 27.0
+offset_right = 1362.0
+offset_bottom = 58.0
+text = "Return to Draw"
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="FileDialogBaseImage" to="." method="_on_file_dialog_base_image_file_selected"]
+[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]
+[connection signal="pressed" from="ButtonBase" to="." method="_on_button_base_pressed"]
+[connection signal="value_changed" from="HScrollBar" to="." method="_on_h_scroll_bar_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

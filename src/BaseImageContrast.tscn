@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0psywjk83vg5"]
+
+[ext_resource type="Script" path="res://BaseImageContrast.gd" id="1_emchk"]
+[ext_resource type="Script" path="res://TextureRectContrast.gd" id="2_5lrcq"]
+[ext_resource type="PackedScene" uid="uid://dxv7v8hmiq7sk" path="res://PointViewport.tscn" id="3_fljqk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_emchk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_5lrcq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+
+[node name="SubViewportPoint" type="SubViewportContainer" parent="."]
+offset_left = -100.0
+offset_right = 1500.0
+offset_bottom = 900.0
+scale = Vector2(0.012, 0.012)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportPoint"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="SubViewportPoint/SubViewport" instance=ExtResource("3_fljqk")]

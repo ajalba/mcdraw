@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://iqbgf572narl"]
+
+[ext_resource type="Script" path="res://BoardImage.gd" id="1_beqfe"]
+[ext_resource type="PackedScene" uid="uid://dxv7v8hmiq7sk" path="res://PointViewport.tscn" id="2_fg0hm"]
+[ext_resource type="Shader" path="res://BLENDMIX.gdshader" id="3_ex6da"]
+[ext_resource type="PackedScene" uid="uid://dmv1w6kbjnhov" path="res://WhiteColorViewport.tscn" id="4_tfh11"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qghjp"]
+shader = ExtResource("3_ex6da")
+shader_parameter/point_color = null
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_beqfe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportPoint" type="SubViewportContainer" parent="."]
+offset_left = -100.0
+offset_right = 1500.0
+offset_bottom = 900.0
+scale = Vector2(0.012, 0.012)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportPoint"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="SubViewportPoint/SubViewport" instance=ExtResource("2_fg0hm")]
+
+[node name="PointSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qghjp")
+position = Vector2(-200, 0)
+scale = Vector2(0.012, 0.012)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 2284.0
+offset_top = 380.0
+offset_right = 3884.0
+offset_bottom = 1280.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_tfh11")]

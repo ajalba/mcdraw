@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://nuk4x76rlj62"]
+
+[ext_resource type="Script" path="res://BaseImage.gd" id="1_awdsw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_awdsw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]

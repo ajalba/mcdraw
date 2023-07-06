@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://xh6gaogwkl8y"]
+
+[ext_resource type="Script" path="res://BaseImageEdges.gd" id="1_se7ao"]
+[ext_resource type="Shader" path="res://Blur.gdshader" id="2_7x0f6"]
+[ext_resource type="Script" path="res://TextureRectEdges.gd" id="2_w11l8"]
+[ext_resource type="PackedScene" uid="uid://dxv7v8hmiq7sk" path="res://PointViewport.tscn" id="3_uyby7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if4m3"]
+shader = ExtResource("2_7x0f6")
+shader_parameter/sigma1 = 0.1
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_se7ao")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_if4m3")
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_w11l8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+
+[node name="SubViewportPoint" type="SubViewportContainer" parent="."]
+offset_left = -100.0
+offset_right = 1500.0
+offset_bottom = 900.0
+scale = Vector2(0.012, 0.012)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportPoint"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="SubViewportPoint/SubViewport" instance=ExtResource("3_uyby7")]

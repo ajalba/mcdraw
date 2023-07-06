@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxv7v8hmiq7sk"]
+
+[ext_resource type="Texture2D" uid="uid://blhns6vj0pxjh" path="res://dots_8_1200.png" id="1_k3mos"]
+[ext_resource type="Script" path="res://PointViewport.gd" id="1_sq014"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sq014")
+
+[node name="Point" type="Sprite2D" parent="."]
+texture = ExtResource("1_k3mos")
+hframes = 10
+vframes = 4
+frame = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
