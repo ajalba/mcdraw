@@ -71,9 +71,6 @@ func clear_area_board(rect: Rect2):
 	mask_to_clean.blit_rect(mask_image_original, rect, Vector2i(rect.position))
 	board_expand.update(board_expand_to_clean)
 	mask_image.update(mask_to_clean)
-#	board_expand.blit_rect(board_expand_original, rect, Vector2i(rect.position))
-#	board_expand.blit_rect(original_base_image_for_edges, rect, Vector2i(rect.position))
-#	mask_image.blit_rect(mask_image_original, rect, Vector2i(rect.position))
 
 func draw_black_in_edges(rect: Rect2):
 	base_image_for_edges_drawn.blit_rect(black_color_image, rect, Vector2i(rect.position))

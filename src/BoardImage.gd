@@ -31,6 +31,4 @@ func _process(_delta):
 	if point_size != Global.point_size:
 		point_size = Global.point_size
 		$PointSprite.scale = Vector2(0.005 + 0.002 * point_size, 0.005 + 0.002 * point_size)
-#	if Global.mode_write:
-#		$TextureRect.texture = ImageTexture.create_from_image(Global.board_expand)
 

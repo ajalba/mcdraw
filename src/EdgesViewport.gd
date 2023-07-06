@@ -21,7 +21,3 @@ func _process(_delta):
 		viewport_texture = $SubViewportContainer/SubViewport.get_texture()
 		Global.base_image_for_contrast = viewport_texture.get_image()
 		Global.original_base_image_for_contrast = viewport_texture.get_image()
-#	if Global.drawing_style == Global.DRAWING_TYPE.EDGES_MASK and not Global.mode_write:
-#		Global.base_image_for_edges = $SubViewportContainer/SubViewport.get_texture().get_image()
-#	if Global.mode_write:
-#		$TextureRect.texture = $SubViewportContainer/SubViewport.get_texture()

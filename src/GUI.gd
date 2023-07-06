@@ -9,14 +9,6 @@ func _ready():
 	$ColorPicker.color = Global.color
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if not Global.board_image.is_empty():
-#		$BoardImage.texture = ImageTexture.create_from_image(Global.board_image)
-#	if not Global.base_image.is_empty():
-#		$BaseImage.texture = ImageTexture.create_from_image(Global.base_image)	
-
-
 func _on_button_board_pressed():
 	$FileDialog.popup()
 

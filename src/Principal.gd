@@ -74,22 +74,6 @@ func _process(_delta):
 			Global.point_position = Vector2i(use_point[1], use_point[2])
 		else:
 			bot_umbral -= umbral_diff
-#		SECOND AND MOST IMPORTANT IMPLEMENTATION
-#		found = false
-#		while not found:
-#			pixel = 0.0
-#			if usable_points.size() == 0 or random_number == 1:
-#				reset_usable_points()
-#			if usable_points.size() > 0:
-#				point_index = cs_callable.nextPointIndex(usable_points.slice(0,15,1,true), sum)
-#				point = usable_points.pop_at(point_index)
-#				sum -= point[0]
-#				if point:
-#					Global.point_frame = rng.randi_range(0, 39)
-#					Global.point_position = Vector2i(point[1], point[2])
-#					found = true
-#			else:
-#				bot_umbral -= umbral_diff
 		if not Global.mask_original_made:
 			Global.board_expand_original = $SubViewportBoardContainer/SubViewport.get_texture().get_image()
 			Global.mask_image_original = $SubViewportMaskContainer/SubViewport.get_texture().get_image()
@@ -112,34 +96,6 @@ func _process(_delta):
 			Global.board_expand_original = $SubViewportBoardContainer/SubViewport.get_texture().get_image()
 			Global.mask_image_original = $SubViewportMaskContainer/SubViewport.get_texture().get_image()
 		
-#	FIRST IMPLEMENTATION
-#	if Global.drawing_style == Global.DRAWING_TYPE.AUTOMATIC:
-#		Global.point_frame = rng.randi_range(0, 39)
-#		usable_points = Array()
-#		viewport_texture = $SubViewportMaskContainer/SubViewport.get_texture()
-#		viewport_image = viewport_texture.get_image()
-#		sum = float(0.0)
-#		found = false
-#		while not found:
-#			pixel = 0.0
-#			for j in range(0, viewport_image.get_height()):
-#				for i in range(0, viewport_image.get_width()):
-#					pixel = float(viewport_image.get_pixel(i,j).r)
-#					if pixel > bot_umbral and pixel < top_umbral:
-#						sum += pixel
-#						usable_points.append(Vector3( pixel, i, j))
-#			if usable_points.size() > 0:
-#				point = cs_callable.findNextPoint(usable_points, sum)
-#				if point:
-#					Global.point_frame = rng.randi_range(0, 39)
-#					Global.point_position = point
-#					found = true
-#			else:
-#				bot_umbral -= umbral_diff
-#		if not Global.mask_original_made:
-#			Global.mask_image_original = $SubViewportMaskContainer/SubViewport.get_texture().get_image()
-#			Global.mask_original_made = true
-
 func _on_check_button_toggled(button_pressed):
 	if button_pressed:
 		Global.drawing_style = Global.DRAWING_TYPE.CONTRAST_MASK		
