@@ -34,7 +34,7 @@ var delete_edges_in_draw = false
 var refresh_mask = true
 var color_changed = false
 var color = Color.BLACK
-var point_size = 5
+var point_size = 3
 var drawing_style
 var point_position
 var original_texture_point_position

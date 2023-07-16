@@ -1,5 +1,5 @@
 extends Sprite2D
-var dragging = false
+var dragging = true
 var local
 var r_1 = Vector2i(0,0)
 var r_2

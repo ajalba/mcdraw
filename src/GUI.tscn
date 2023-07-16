@@ -36,10 +36,10 @@ filters = PackedStringArray("*.png, *.jpeg, *.jpg")
 show_hidden_files = true
 
 [node name="ColorPicker" type="ColorPicker" parent="."]
-offset_left = 1374.0
-offset_top = 363.0
-offset_right = 1592.0
-offset_bottom = 931.0
+offset_left = 1245.0
+offset_top = 235.0
+offset_right = 1527.0
+offset_bottom = 803.0
 
 [node name="ButtonBase" type="Button" parent="."]
 offset_left = 153.0

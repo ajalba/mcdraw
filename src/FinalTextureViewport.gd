@@ -7,18 +7,16 @@ func _ready():
 	var viewport_texture = $SubViewportContainer/SubViewport.get_texture()
 	$Mask.texture = viewport_texture
 	Global.mask_image = ImageTexture.create_from_image(viewport_texture.get_image())
-#	Global.mask_image = viewport_texture.get_image()
 	$Point.material.set("shader_parameter/board_texture", viewport_texture)		
-#	$Mask.texture = ImageTexture.create_from_image(Global.mask_image)
 	point_size = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	await RenderingServer.frame_post_draw
-	
-	$Point.texture = $SubViewportPoint/SubViewport.get_texture()
-	$Point.position = Global.point_position
+	if Global.drawing_style == Global.DRAWING_TYPE.AUTOMATIC:
+		$Point.texture = $SubViewportPoint/SubViewport.get_texture()
+		$Point.position = Global.point_position
 #	if not Global.mask_image.is_empty() and Global.drawing_style == Global.DRAWING_TYPE.AUTOMATIC:
 	$Mask.texture = Global.mask_image
 	if Global.refresh_mask:

@@ -95,7 +95,7 @@ func _process(_delta):
 		if not Global.mask_original_made:
 			Global.board_expand_original = $SubViewportBoardContainer/SubViewport.get_texture().get_image()
 			Global.mask_image_original = $SubViewportMaskContainer/SubViewport.get_texture().get_image()
-		
+	
 func _on_check_button_toggled(button_pressed):
 	if button_pressed:
 		Global.drawing_style = Global.DRAWING_TYPE.CONTRAST_MASK		
@@ -125,6 +125,10 @@ func _on_check_button_edges_toggled(button_pressed):
 		Global.drawing_style = Global.DRAWING_TYPE.BOTH_MASK
 		
 		
+
+func _input(event):
+	if event.is_action_pressed("toggle_mask"):
+		$SubViewportMaskContainer.visible = !$SubViewportMaskContainer.visible
 
 
 func _on_check_box_toggled(button_pressed):
